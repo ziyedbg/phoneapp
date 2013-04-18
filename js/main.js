@@ -205,11 +205,12 @@ function onDeviceReady() {}
 // Called when capture operation is finished
 //
 function captureSuccess(mediaFiles) {
-    $('.loader-image').fadeIn(100);
-    var i, len;
-    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-        uploadFile(mediaFiles[i]);
-    }
+    //$('.loader-image').fadeIn(100);
+    //var i, len;
+    //for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        //uploadFile(mediaFiles[i]);
+    //}
+        uploadFile(mediaFiles[0]);
 }
 
 // Called if something bad happens.
@@ -224,9 +225,7 @@ function captureError(error) {
 function captureImage() {
     // Launch device camera application,
     // allowing user to capture up to 1 images
-    navigator.device.capture.captureImage(captureSuccess, captureError, {
-        limit: 1
-    });
+    navigator.device.capture.captureImage(captureSuccess, captureError, {limit: 1});
 }
 
 // Upload files to server
@@ -249,9 +248,8 @@ function uploadFile(mediaFile) {
     var ft = new FileTransfer();
     ft.upload( path, "http://117.58.246.154/dfphoneapp/home/image_upload",
         function(result) {
-            $('.loader-image').fadeOut(100);
-            $('#camera-block').css('display','none');
-            $('#product-add').fadeIn(1000);
+            //$('.loader-image').fadeOut(100);
+            $('#camera-block').css('display','none');$('#product-add').fadeIn(1000);
             $('#cap_image_').val(name);
             navigator.geolocation.getCurrentPosition(
                 function (position) {
