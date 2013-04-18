@@ -205,7 +205,7 @@ function onDeviceReady() {}
 // Called when capture operation is finished
 //
 function captureSuccess(mediaFiles) {
-    //$('.loader-image').fadeIn(100);
+    $('.loader-image').fadeIn(100);
     //var i, len;
     //for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         //uploadFile(mediaFiles[i]);
@@ -248,7 +248,7 @@ function uploadFile(mediaFile) {
     var ft = new FileTransfer();
     ft.upload( path, "http://117.58.246.154/dfphoneapp/home/image_upload",
         function(result) {
-            //$('.loader-image').fadeOut(100);
+            $('.loader-image').fadeOut(100);
             $('#camera-block').css('display','none');$('#product-add').fadeIn(1000);
             $('#cap_image_').val(name);
             navigator.geolocation.getCurrentPosition(
